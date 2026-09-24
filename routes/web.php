@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BanjirController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,3 +31,9 @@ Route::get('/about', function () {
 
 Route::get('/form', [DataController::class, 'form']);
 Route::post('/proses', [DataController::class, 'proses']);
+
+Route::get('/lapor-banjir', [BanjirController::class, 'index']);
+Route::post('/proses-banjir', [BanjirController::class, 'proses']);
+
+Route::get('/layanan', [LayananController::class, 'form']);
+Route::post('/layanan/proses', [LayananController::class, 'proses']);
